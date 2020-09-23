@@ -1,30 +1,30 @@
 var sudokuValido = [
-    [5, 3, 4    , 6, 7, 8, 9, 1, 2],
-    [6, 5, 2,   1, 9, 5, 3, 4, 8],
-    [1, 9, 8,   3, 4, 2, 5, 6, 7],
+    [5, 3, 4,   6, 7, 8,    9, 1, 2],
+    [6, 7, 2,   1, 9, 5,    3, 4, 8],
+    [1, 9, 8,   3, 4, 2,    5, 6, 7],
 
-    [8, 5, 9, 7, 6, 1, 4, 2, 3],
-    [4, 2, 6, 8, 5, 3, 7, 9, 1],
-    [7, 1, 3, 9, 2, 4, 8, 5, 6],
+    [8, 5, 9,   7, 6, 1,  4, 2, 3],
+    [4, 2, 6,   8, 5, 3,  7, 9, 1],
+    [7, 1, 3,   9, 2, 4,  8, 5, 6],
 
-    [9, 6, 1, 5, 3, 7, 2, 8, 4],
-    [2, 8, 7, 4, 1, 9, 6, 3, 5],
-    [3, 4, 5, 2, 8, 6, 1, 7, 9],
+    [9, 6, 1,   5, 3, 7,  2, 8, 4],
+    [2, 8, 7,   4, 1, 9,  6, 3, 5],
+    [3, 4, 5,   2, 8, 6,  1, 7, 9],
 ];
 
 
 var sudokuInvalido = [
-    [5, 3, 4, 6, 7, 9, 8, 1, 2],
-    [6, 7, 2, 1, 9, 5, 3, 4, 7],
-    [6, 9, 8, 3, 4, 2, 7, 6, 5],
+    [5, 3, 4,   6, 7, 9,    8, 1, 2],
+    [6, 7, 2,   1, 9, 5,    3, 4, 7],
+    [6, 9, 8,   3, 4, 2,    7, 6, 5],
 
-    [8, 5, 9, 7, 6, 1, 4, 2, 1],
-    [4, 2, 6, 8, 5, 3, 7, 8, 1],
-    [7, 1, 3, 9, 2, 4, 8, 5, 6],
+    [8, 5, 9,   7, 6, 1,    4, 2, 1],
+    [4, 2, 6,   8, 5, 3,    7, 8, 1],
+    [7, 1, 3,   9, 2, 4,    8, 5, 6],
 
-    [9, 6, 1, 5, 3, 7, 2, 8, 4],
-    [2, 8, 7, 4, 1, 9, 6, 3, 5],
-    [3, 4, 5, 2, 8, 6, 1, 8, 8],
+    [9, 6, 1,   5, 3, 7,    2, 8, 4],
+    [2, 8, 7,   4, 1, 9,    6, 3, 5],
+    [3, 4, 5,   2, 8, 6,    1, 8, 8],
 ];
 
 function validarFilas(sudokuParaComprobar, nombreDelSudoku) {
@@ -40,7 +40,7 @@ function validarFilas(sudokuParaComprobar, nombreDelSudoku) {
 
                 } else if (sudokuParaComprobar[filaNumeroElegido][columnaNumeroElegido] == sudokuParaComprobar[i][k]) {
 
-                    console.log(nombreDelSudoku + " erroneo en la fila " + (i + 1) + " por la repetición del valor " + sudokuParaComprobar[i][k]);
+                    console.log(nombreDelSudoku + ": error en la fila " + (i + 1) + " por la repetición del valor " + sudokuParaComprobar[i][k]);
 
                 }
             }
@@ -63,7 +63,7 @@ function validarColumnas(sudokuParaComprobar, nombreDelSudoku) {
 
                 } else if (sudokuParaComprobar[columnaNumeroElegido][filaNumeroElegido] == sudokuParaComprobar[k][i]) {
 
-                    console.log(nombreDelSudoku + " erroneo en la columna " + (i + 1) + " por la repetición del valor " + sudokuParaComprobar[k][i]);
+                    console.log(nombreDelSudoku + ": error en la columna " + (i + 1) + " por la repetición del valor " + sudokuParaComprobar[k][i]);
 
                 }
             }
@@ -114,7 +114,7 @@ function validarCuadrante(sudokuParaComprobar, nombreDelSudoku) {
     }
 }
 
-function comprobarCuadranteIndividual(filaCuadrante, columnaCuadrante, filaNumeroElegido, columnaNumeroElegido, sudokuParaComprobar, cuadrante) {
+function comprobarCuadranteIndividual(filaCuadrante, columnaCuadrante, filaNumeroElegido, columnaNumeroElegido, sudokuParaComprobar, cuadrante,nombreDelSudoku) {
 
 
     for (let i = filaCuadrante; i < (filaCuadrante + 3); i++) {
@@ -123,7 +123,7 @@ function comprobarCuadranteIndividual(filaCuadrante, columnaCuadrante, filaNumer
 
             } else if (sudokuParaComprobar[filaNumeroElegido][columnaNumeroElegido] == sudokuParaComprobar[i][j]) {
 
-                console.log("Error en cuadrante " + cuadrante + " por la repetición del valor " + sudokuParaComprobar[i][j]);
+                console.log(nombreDelSudoku + ": error en cuadrante " + cuadrante + " por la repetición del valor " + sudokuParaComprobar[i][j]);
 
             }
 
@@ -148,7 +148,7 @@ class comprobadorSudoku {
         console.log("Procedemos a comprobar el cuadrante del sudoku");
         validarCuadrante(this.sudokuAComprobar, this.nombreDelSudoku);
         console.log(' ');
-
+        console.log(' ');
     }
 }
 

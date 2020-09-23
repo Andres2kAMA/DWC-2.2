@@ -28,7 +28,7 @@ var sudokuInvalido = [
 ];
 
 function validarFilas(sudokuParaComprobar, nombreDelSudoku) {
-    for (let i = 0; i < 9; i++) {
+    for (let i = 0; i < sudokuParaComprobar.length; i++) {
 
         for (let j = 0; j < sudokuParaComprobar[i].length; j++) {
 
@@ -50,7 +50,7 @@ function validarFilas(sudokuParaComprobar, nombreDelSudoku) {
 }
 
 function validarColumnas(sudokuParaComprobar, nombreDelSudoku) {
-    for (let i = 0; i < 9; i++) {
+    for (let i = 0; i < sudokuParaComprobar.length; i++) {
 
         for (let j = 0; j < sudokuParaComprobar[i].length; j++) {
 
@@ -72,9 +72,9 @@ function validarColumnas(sudokuParaComprobar, nombreDelSudoku) {
 }
 
 function validarCuadrante(sudokuParaComprobar, nombreDelSudoku) {
-    for (let i = 0; i < 9; i++) {
+    for (let i = 0; i < sudokuParaComprobar.length; i++) {
 
-        for (let j = 0; j < 9; j++) {
+        for (let j = 0; j < sudokuParaComprobar[i].length; j++) {
             var filaNumeroElegido = i;
             var columnaNumeroElegido = j;
 
